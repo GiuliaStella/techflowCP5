@@ -3,7 +3,7 @@ Projeto desenvolvido para o Checkpoint 5 — FrontEnd Design.
 
 -----------------------------Integrantes ------------------------------------------------
 Giulia Stella  - rm568888
-Anna Giazzi - rm
+Anna Giazzi - rm569846
 
 
 ---------------------------Tecnologias utilizadas-----------------------------------------
@@ -42,6 +42,6 @@ npm run dev
 Depois, abra a URL exibida pelo Vite.
 
 Link do GitHub
-repositório: 
+repositório: https://github.com/GiuliaStella/techflowCP5
 
 
