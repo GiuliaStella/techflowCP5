@@ -4,7 +4,7 @@ Projeto desenvolvido para o Checkpoint 5 — FrontEnd Design.
 -----------------------------Integrantes ------------------------------------------------
 Giulia Stella  - rm568888
 Anna Giazzi - rm569846
-
+Rafael Willian Morales- rm570738
 
 ---------------------------Tecnologias utilizadas-----------------------------------------
 
