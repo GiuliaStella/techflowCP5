@@ -14,7 +14,45 @@ function renderProjects(list = projects) { grid.innerHTML = list.map(p => { cons
 renderProjects();
 const activities = [['MC', 'Marina atualizou o projeto', 'Aurora Mobile', 'há 12 min', 'indigo'], ['RL', 'Rafael concluiu uma tarefa em', 'Dashboard analytics', 'há 48 min', 'emerald'], ['CS', 'Camila comentou em', 'Brand refresh 2026', 'há 2h', 'violet'], ['JP', 'João entrou para a equipe', 'Design system', 'há 3h', 'amber']];
 document.querySelector('#activityList').innerHTML = activities.map(a => `<div class="flex gap-3"><div class="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-${a[4]}-100 text-[9px] font-black text-${a[4]}-600 dark:bg-${a[4]}-500/20 dark:text-${a[4]}-300">${a[0]}</div><div class="min-w-0 text-xs leading-5"><p><b>${a[1]}</b> <span class="text-slate-500 dark:text-slate-400">${a[2]}</span></p><span class="text-[10px] text-slate-400">${a[3]}</span></div></div>`).join('');
-document.querySelectorAll('[data-section]').forEach(link => link.addEventListener('click', e => { e.preventDefault(); document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active')); link.classList.add('active'); toast(`${link.textContent.trim()} selecionado — módulo demonstrativo`) }));
+document.querySelectorAll('.nav-item').forEach(link => {
+  link.addEventListener('click', event => {
+    const isProjectLink = link.getAttribute('href') === '#projetos';
+
+    const isOverviewLink =
+      link.getAttribute('href') === '#' &&
+      !link.dataset.section;
+
+    const isDemoSection = link.dataset.section;
+
+    if (!isProjectLink && !isOverviewLink && !isDemoSection) {
+      return;
+    }
+
+    event.preventDefault();
+
+    document
+      .querySelectorAll('.nav-item')
+      .forEach(item => item.classList.remove('active'));
+
+    link.classList.add('active');
+
+    if (isDemoSection) {
+      toast(
+        `${link.textContent.trim()} selecionado — módulo demonstrativo`
+      );
+    }
+
+    if (isProjectLink) {
+      document
+        .querySelector('#projetos')
+        .scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+    }
+  });
+});
+
 const sidebar = document.querySelector('#sidebar'), overlay = document.querySelector('#sidebarOverlay'); function toggleSide(open) { sidebar.classList.toggle('-translate-x-full', !open); overlay.classList.toggle('hidden', !open) } document.querySelector('#openSidebar').onclick = () => toggleSide(true); document.querySelector('#closeSidebar').onclick = () => toggleSide(false); overlay.onclick = () => toggleSide(false);
 const menu = document.querySelector('#userMenu'); document.querySelector('#userButton').onclick = () => menu.classList.toggle('hidden');
 document.addEventListener('click', e => { if (!e.target.closest('#userButton') && !e.target.closest('#userMenu')) menu.classList.add('hidden') });
