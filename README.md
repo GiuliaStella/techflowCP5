@@ -44,4 +44,9 @@ Depois, abra a URL exibida pelo Vite.
 Link do GitHub
 repositório: https://github.com/GiuliaStella/techflowCP5
 
+------------------------------Dificuldades encontradas-----------------------------------
+
+A principal dificuldade foi organizar o dashboard para funcionar bem em diferentes tamanhos de tela. A solução foi utilizar uma abordagem mobile-first, CSS Grid para os projetos e Flexbox para a navegação e os cards.
+
+
 
